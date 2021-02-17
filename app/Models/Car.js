@@ -13,14 +13,14 @@ constructor({make, model, year, price, description, imgUrl, miles}){
 }
 
 get Template(){
-  return /*html*/`<div class="card col-2">
+  return /*html*/`<div class="card bg-light border-primary col-2 m-2">
   <i class="fa fa-trash fa-2x text-danger d-flex align-self-end pointer" onclick="app.carsController.deleteCar('${this.id}')" aria-hidden="true"></i>
   <img class="card-img-top" src="${this.imgUrl}" alt="">
   <div class="card-body">
-      <h4 class="card-title">${this.year} ${this.make} - ${this.model}</h4>
+      <h4 class="card-title">${this.year}: ${this.make} ${this.model}</h4>
       <p class="card-text">${this.description}</p>
-      <p>Miles : ${this.miles}</p>
-      <p>Price: ${this.price}</p>
+      <p>Mileage: ${this.miles}</p>
+      <p>Price: $${this.price}</p>
       <button class="btn btn-success" onclick="app.carsController.bid('${this.id}')">Bid</button>
   </div>
 </div>`
