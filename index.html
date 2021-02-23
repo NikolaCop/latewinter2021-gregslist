@@ -36,10 +36,10 @@
             </div>
         </nav>
     </header>
-    <main class="container-fluid">
+    <main class="container-fluid bg-dark">
         <div class="row p-2 mt-5 pt-5">
             <div class="col">
-                <h1>Cars</h1>
+                <h1 class="text-white">Cars</h1>
                 <form class="form-inline" onsubmit="app.carsController.createCar(event)">
                     <div class="form-group">
                         <input type="text" name="make" id="make" class="form-control" placeholder="Make"
@@ -62,10 +62,6 @@
                             placeholder="Description" aria-describedby="helpId">
                     </div>
                     <div class="form-group">
-                        <input type="number" name="miles" id="miles" class="form-control" placeholder="Miles"
-                            aria-describedby="helpId">
-                    </div>
-                    <div class="form-group">
                         <input type="text" name="imgUrl" id="imgUrl" class="form-control" placeholder="ImgUrl"
                             aria-describedby="helpId">
                     </div>
@@ -82,18 +78,18 @@
 
         <div class="row p-2">
             <div class="col">
-                <h1>Houses</h1>
-                <form class="form-inline" onsubmit="app.houseController.createHouse(event)">
+                <h1 class="text-white">Houses</h1>
+                <form class="form-inline" onsubmit="app.housesController.createHouses(event)">
                     <div class="form-group">
-                        <input type="text" name="rooms" id="rooms" class="form-control" placeholder="Rooms"
+                        <input type="text" name="bedrooms" id="bedrooms" class="form-control" placeholder="Bedrooms"
                             aria-describedby="helpId">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="size" id="size" class="form-control" placeholder="Size"
+                        <input type="text" name="bathrooms" id="bathrooms" class="form-control" placeholder="Bathrooms"
                             aria-describedby="helpId">
                     </div>
                     <div class="form-group">
-                        <input type="boolean" name="garage" id="garage" class="form-control" placeholder="Garage"
+                        <input type="number" name="levels" id="levels" class="form-control" placeholder="Levels"
                             aria-describedby="helpId">
                     </div>
                     <div class="form-group">
@@ -105,12 +101,21 @@
                         <input type="text" name="imgUrl" id="imgUrl" class="form-control" placeholder="ImgUrl"
                             aria-describedby="helpId">
                     </div>
+
+                    <div class="form-group">
+                        <input type="number" name="year" id="year" class="form-control" placeholder="Year"
+                            aria-describedby="helpId">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="description" id="description" class="form-control"
+                            placeholder="Description" aria-describedby="helpId">
+                    </div>
                     <button class="btn btn-primary" type="submit">Create</button>
                 </form>
             </div>
         </div>
 
-        <div class="row p-4" id="house">
+        <div class="row p-4" id="houses">
         </div>
 
 
@@ -120,27 +125,27 @@
 
         <div class="row p-2">
             <div class="col">
-                <h1>Jobs</h1>
+                <h1 class="text-white">Jobs</h1>
                 <form class="form-inline" onsubmit="app.jobsController.createJobs(event)">
                     <div class="form-group">
+                        <input type="text" name="jobTitle" id="jobTitle" class="form-control" placeholder="Job Title"
+                            aria-describedby="helpId">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="company" id="company" class="form-control" placeholder="Company"
+                            aria-describedby="helpId">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="rate" id="rate" class="form-control" placeholder="Rate"
+                            aria-describedby="helpId">
+                    </div>
+                    <div class="form-group">
                         <input type="text" name="description" id="description" class="form-control"
-                            placeholder="Job Title" aria-describedby="helpId">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="pay" id="pay" class="form-control" placeholder="Hourly Rate"
-                            aria-describedby="helpId">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="experience" id="experience" class="form-control"
-                            placeholder="Experience Required" aria-describedby="helpId">
-                    </div>
-                    <div class="form-group">
-                        <input type="number" name="apply" id="apply" class="form-control" placeholder="Applicants"
-                            aria-describedby="helpId">
+                            placeholder="Description" aria-describedby="helpId">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" name="imgUrl" id="imgUrl" class="form-control" placeholder="ImgUrl"
+                        <input type="number" name="hours" id="hours" class="form-control" placeholder="Hours"
                             aria-describedby="helpId">
                     </div>
 
@@ -161,7 +166,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="app/main.js" type="module"></script>
 </body>
 

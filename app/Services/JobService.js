@@ -1,30 +1,50 @@
 import { ProxyState } from "../AppState.js";
 import Jobs from "../Models/Jobs.js";
+import { api } from "./AxiosService.js";
 
 class JobsService{
 constructor(){
 console.log("jobs service");
+this.getJobs();
 }
 
-createJobs(rawJobs) {
-    let temp = ProxyState.jobs
-    temp.push(new Jobs(rawJobs))
-    ProxyState.jobs = temp
+
+async getJobs() {
+    try {
+      const res = await api.get('Jobs')
+      ProxyState.jobs = res.data.map(rawJobsData => new Jobs(rawJobsData))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+async createJobs(rawJobs){
+ try {
+      const res = await api.post('jobs', rawJobs)
+      ProxyState.jobs = [ ...ProxyState.jobs, new Jobs(res.data)]
+    } catch (error) {
+      console.error(error)
+    }
 }
 
-bid(id) {
-    let temp = ProxyState.jobs
-    let jobs = temp.find(j=> j.id === id)
-    jobs.apply += 1
-    ProxyState.jobs = temp
+async bid(id) {
+let jobs = ProxyState.jobs.find(j=> j.id === id)
+    jobs.apply += 1000
+    try {
+      const res = await api.put('jobs/' + id, jobs)
+      console.log(res.data)
+      ProxyState.jobs = ProxyState.jobs
+    } catch (error) {
+      
+    }
+}
+async deleteJobs(id) {
+ try {
+ const res = await api.delete(`jobs/${id}`)
+ this.getJobs()
+  } catch (error) {
+  console.error(error)
   }
-
-  deleteJobs(id) {
-    let temp = ProxyState.jobs
-    let jobsIndex = temp.findIndex(jobs =>  jobs.id == id)
-    temp.splice(jobsIndex, 1)
-    ProxyState.jobs = temp
-  }
+}
 }
 
 export const jobsService = new JobsService()

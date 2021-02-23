@@ -1,14 +1,13 @@
 import CarsController from "./Controllers/CarsController.js";
 import JobsController from "./Controllers/JobsController.js";
-import HouseController from "./Controllers/HouseController.js";
-import ValuesController from "./Controllers/ValuesController.js";
+import HousesController from "./Controllers/HousesController.js";
 
 
 class App {
   // valuesController = new ValuesController();
   carsController = new CarsController();
 
-  houseController = new HouseController();
+  housesController = new HousesController();
 
   jobsController = new JobsController();
 }

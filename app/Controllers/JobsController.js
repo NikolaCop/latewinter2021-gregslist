@@ -23,11 +23,11 @@ createJobs(event){
     let form = event.target
     console.log(form)
     let rawJobs = {
-      description: form.description.value,
-      pay: form.pay.value,
-      experience: form.experience.value,
-      imgUrl: form.imgUrl.value,
-      apply: form.apply.value
+      jobTitle: form.jobTitle.value,
+      company: form.company.value,
+      rate: form.rate.value,
+      hours: form.hours.value,
+      description: form.description.value
     }
     console.log(rawJobs)
     jobsService.createJobs(rawJobs)
