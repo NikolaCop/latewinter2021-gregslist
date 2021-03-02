@@ -11,7 +11,7 @@ this.getJobs();
 
 async getJobs() {
     try {
-      const res = await api.get('Jobs')
+      const res = await api.get('jobs')
       ProxyState.jobs = res.data.map(rawJobsData => new Jobs(rawJobsData))
     } catch (error) {
       console.error(error)
@@ -28,7 +28,7 @@ async createJobs(rawJobs){
 
 async bid(id) {
 let jobs = ProxyState.jobs.find(j=> j.id === id)
-    jobs.apply += 1000
+    // jobs.apply += 1000
     try {
       const res = await api.put('jobs/' + id, jobs)
       console.log(res.data)
